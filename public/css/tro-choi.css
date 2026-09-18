@@ -1,0 +1,232 @@
+.game-shell {
+  max-width: 1400px;
+}
+.game-head {
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.game-title {
+  text-align: center;
+}
+.game {
+  display: grid;
+  grid-template-columns: minmax(330px, 0.8fr) minmax(500px, 1.2fr);
+  gap: 18px;
+  min-height: calc(100vh - 110px);
+  padding-bottom: 24px;
+}
+.panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 28px;
+  overflow: hidden;
+}
+.question-panel {
+  display: flex;
+  flex-direction: column;
+}
+.empty {
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+  max-width: 310px;
+}
+.empty-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: #f1f2f4;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  font-size: 27px;
+}
+.question {
+  display: none;
+  animation: qIn 0.5s var(--ease);
+}
+.question.show {
+  display: block;
+}
+@keyframes qIn {
+  from {
+    opacity: 0;
+    transform: translateX(-18px);
+  }
+}
+.question h2 {
+  font-size: 32px;
+  letter-spacing: -0.04em;
+  margin: 14px 0 25px;
+}
+.answers {
+  display: grid;
+  gap: 10px;
+}
+.answer {
+  border: 1px solid var(--line);
+  background: #fafafa;
+  border-radius: 17px;
+  padding: 15px;
+  text-align: left;
+  transition: 0.2s var(--ease);
+  cursor: pointer;
+}
+.answer:hover {
+  transform: translateX(5px);
+}
+.answer.selected {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(10, 109, 253, 0.09);
+}
+.answer.correct {
+  border-color: var(--green);
+  background: #f0fbf4;
+}
+.answer.wrong {
+  border-color: var(--red);
+  background: #fff2f2;
+}
+.submit {
+  width: 100%;
+  margin-top: 20px;
+}
+.puzzle-panel {
+  display: flex;
+  flex-direction: column;
+}
+.puzzle-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.puzzle-top h2 {
+  margin: 0;
+}
+.puzzle {
+  position: relative;
+  flex: 1;
+  min-height: 500px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #dfe4e8;
+}
+.secret {
+  position: absolute;
+  inset: 0;
+  background: center/cover no-repeat;
+}
+.tiles {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  gap: 0;
+}
+.tile {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  background: #17191d;
+  color: #fff;
+  font-size: 25px;
+  font-weight: 850;
+  cursor: pointer;
+
+  transition:
+    opacity 0.35s ease,
+    filter 0.25s ease;
+}
+
+.tile:hover {
+  filter: brightness(1.2);
+}
+.tile.flip {
+  transform: perspective(800px) rotateY(180deg) scale(0.9);
+}
+.tile.open {
+  opacity: 0;
+  transform: scale(0.7) rotate(3deg);
+  pointer-events: none;
+}
+.guess {
+  align-self: center;
+  margin-top: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: 0.35s var(--ease);
+}
+.guess.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 24, 0.32);
+  backdrop-filter: blur(14px);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.35s;
+}
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+.modal {
+  width: min(540px, 100%);
+  background: #fff;
+  border-radius: 32px;
+  padding: 30px;
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transform: translateY(25px) scale(0.94);
+  transition: 0.5s var(--ease);
+}
+.overlay.show .modal {
+  transform: none;
+}
+.modal input {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  margin: 15px 0;
+  outline: 0;
+}
+.winmark {
+  font-size: 70px;
+  animation: win 0.8s var(--ease);
+}
+@keyframes win {
+  from {
+    opacity: 0;
+    transform: scale(0.4) rotate(-12deg);
+  }
+  70% {
+    transform: scale(1.12);
+  }
+}
+.prize {
+  background: #f3f4f6;
+  border-radius: 22px;
+  padding: 20px;
+  margin: 20px 0;
+}
+@media (max-width: 900px) {
+  .game {
+    grid-template-columns: 1fr;
+  }
+  .puzzle {
+    min-height: 430px;
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chọn thử thách — Krack</title>
+    <link rel="stylesheet" href="/css/chung.css" />
+    <link rel="stylesheet" href="/css/trang-chu.css" />
+  </head>
+  <body class="page-enter">
+    <div class="shell">
+      <nav class="nav">
+        <a class="pill" href="/trang-chu.html">← Trang chủ</a>
+        <div class="brand">KRACK</div>
+        <div class="nav-right">
+          <span class="pill" data-user></span
+          ><button class="pill" onclick="dangXuat()">Đăng xuất</button>
+        </div>
+      </nav>
+      <header class="challenge-head">
+        <div class="kicker">THỬ THÁCH</div>
+        <h1>Chọn một bí mật.</h1>
+        <p class="muted">
+          Mỗi thử thách chứa một hình ảnh đang chờ được mở khóa.
+        </p>
+      </header>
+      <div id="grid" class="grid"></div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="/js/chung.js"></script>
+    <script src="/js/chon-tro-choi.js"></script>
+  </body>
+</html>

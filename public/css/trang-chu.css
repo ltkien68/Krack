@@ -1,0 +1,87 @@
+.hero {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.hero h1 {
+  font-size: clamp(78px, 14vw, 180px);
+  line-height: 0.78;
+  letter-spacing: -0.085em;
+  margin: 0 0 38px;
+  font-weight: 900;
+}
+.hero h1 span {
+  display: block;
+  font-size: clamp(22px, 3vw, 35px);
+  letter-spacing: -0.04em;
+  color: var(--muted);
+  margin-top: 38px;
+  font-weight: 650;
+}
+.hero p {
+  max-width: 570px;
+  line-height: 1.6;
+}
+.hero .btn {
+  margin-top: 15px;
+  padding: 16px 25px;
+}
+.challenge-head {
+  padding: 75px 0 34px;
+}
+.challenge-head h1 {
+  font-size: clamp(48px, 7vw, 82px);
+  letter-spacing: -0.065em;
+  margin: 8px 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+  padding-bottom: 50px;
+}
+.game-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 16px;
+  transition: 0.4s var(--ease);
+  cursor: pointer;
+}
+.game-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow);
+}
+.cover {
+  height: 190px;
+  border-radius: 20px;
+  background: #15171a center/cover;
+  position: relative;
+  overflow: hidden;
+}
+.cover:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.24);
+}
+.cover span {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  color: #fff;
+  font-size: 29px;
+  font-weight: 850;
+  z-index: 1;
+  letter-spacing: -0.04em;
+}
+.card-info {
+  padding: 17px 7px 7px;
+}
+.card-info h3 {
+  margin: 0 0 7px;
+  font-size: 22px;
+}

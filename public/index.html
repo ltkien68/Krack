@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Krack — Đăng nhập</title>
+    <link rel="stylesheet" href="/css/chung.css" />
+    <link rel="stylesheet" href="/css/dang-nhap.css" />
+  </head>
+  <body>
+    <main class="login">
+      <form id="loginForm" class="login-card">
+        <div class="logo">K</div>
+        <h1>Chào mừng đến Krack.</h1>
+        <p class="muted">
+          Mỗi mảnh ghép là một câu hỏi. Mở khóa bí mật bằng kiến thức của bạn.
+        </p>
+        <div id="loi" class="error"></div>
+        <div class="field">
+          <label>Tài khoản</label><input id="user" value="kienlt" required />
+        </div>
+        <div class="field">
+          <label>Mật khẩu</label
+          ><input id="pass" type="password" value="123" required />
+        </div>
+        <button class="btn dark">Đăng nhập →</button>
+        <p
+          class="muted"
+          style="font-size: 12px; text-align: center; margin-top: 17px"
+        >
+          ltkien / 123 · kienlt / 123
+        </p>
+      </form>
+    </main>
+    <script src="/js/chung.js"></script>
+    <script src="/js/dang-nhap.js"></script>
+  </body>
+</html>

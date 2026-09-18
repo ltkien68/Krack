@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Krack — Trò chơi</title>
+    <link rel="stylesheet" href="/css/chung.css" />
+    <link rel="stylesheet" href="/css/tro-choi.css" />
+  </head>
+  <body class="page-enter">
+    <div class="shell game-shell">
+      <header class="game-head">
+        <a class="pill" href="/chon-tro-choi.html">← Thoát</a>
+        <div class="game-title">
+          <b id="gameTitle">Đang tải...</b><br /><span
+            class="muted"
+            id="progress"
+            >0 / 0 mảnh đã mở</span
+          >
+        </div>
+        <button class="pill" onclick="resetGame()">↻ Reset</button>
+      </header>
+      <main class="game">
+        <section class="panel question-panel">
+          <div id="empty" class="empty">
+            <div class="empty-icon">✦</div>
+            <h3>Chọn một mảnh ghép</h3>
+            <p>Chạm vào một ô bên phải. Câu hỏi sẽ xuất hiện tại đây.</p>
+          </div>
+          <div id="question" class="question">
+            <div id="qKicker" class="kicker"></div>
+            <h2 id="qText"></h2>
+            <div id="answers" class="answers"></div>
+            <button class="btn dark submit" onclick="guiDapAn()">
+              Kiểm tra đáp án
+            </button>
+          </div>
+        </section>
+        <section class="panel puzzle-panel">
+          <div class="puzzle-top">
+            <h2>Hình ảnh bí mật</h2>
+            <span class="muted">Chọn một mảnh để phá</span>
+          </div>
+          <div class="puzzle">
+            <div id="secret" class="secret"></div>
+            <div id="tiles" class="tiles"></div>
+          </div>
+          <button id="guessBtn" class="btn blue guess" onclick="openGuess()">
+            Trả lời ngay ✦
+          </button>
+        </section>
+      </main>
+    </div>
+    <div id="guessOverlay" class="overlay">
+      <div class="modal">
+        <div class="kicker">ĐOÁN HÌNH ẢNH</div>
+        <h2 id="finalQuestion"></h2>
+        <div id="finalOptions" class="answers"></div>
+        <input id="finalInput" placeholder="Nhập câu trả lời ngắn..." /><button
+          class="btn dark"
+          style="width: 100%"
+          onclick="finalAnswer()"
+        >
+          Mở khóa</button
+        ><button
+          class="btn"
+          style="width: 100%; margin-top: 8px"
+          onclick="closeModal('guessOverlay')"
+        >
+          Tiếp tục mở mảnh
+        </button>
+      </div>
+    </div>
+    <div id="winOverlay" class="overlay">
+      <div class="modal">
+        <div class="winmark">✦</div>
+        <div class="kicker">KRACKED</div>
+        <h2 style="font-size: 44px">Bạn đã mở khóa!</h2>
+        <p class="muted">Đáp án chính xác. Bí mật đã được khám phá.</p>
+        <div class="prize">
+          <small>PHẦN THƯỞNG LỚN</small>
+          <h3 id="prizeName"></h3>
+        </div>
+        <a class="btn dark" href="/chon-tro-choi.html">Về trang thử thách →</a>
+      </div>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="/js/chung.js"></script>
+    <script src="/js/tro-choi.js"></script>
+  </body>
+</html>

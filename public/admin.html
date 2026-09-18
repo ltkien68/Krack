@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Krack Admin</title>
+    <link rel="stylesheet" href="/css/chung.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+  </head>
+  <body class="page-enter">
+    <div class="shell">
+      <nav class="nav">
+        <div class="brand">KRACK ADMIN</div>
+        <div class="nav-right">
+          <span class="pill" data-user></span
+          ><button class="pill" onclick="dangXuat()">Đăng xuất</button>
+        </div>
+      </nav>
+      <header class="admin-head">
+        <div class="kicker">QUẢN TRỊ</div>
+        <h1>Phần giải đố.</h1>
+        <button class="btn dark" onclick="toggleForm()">
+          + Tạo phần giải đố
+        </button>
+      </header>
+      <section id="adminList" class="admin-grid"></section>
+      <section id="createArea" class="hidden" style="margin-top: 30px">
+        <form id="createForm">
+          <div class="form-card">
+            <h2>Thông tin chung</h2>
+            <div class="form-grid">
+              <div class="control">
+                <label>Tiêu đề</label><input id="tieuDe" required />
+              </div>
+              <div class="control">
+                <label>Ảnh bí mật</label
+                ><input
+                  id="anhBiMat"
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  required
+                />
+              </div>
+              <div class="control full">
+                <label>Mô tả</label><textarea id="moTa"></textarea>
+              </div>
+              <div class="control">
+                <label>Số hàng</label
+                ><select id="soHang" onchange="taoDanhSachCauHoi()">
+                  <option>2</option>
+                  <option selected>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="control">
+                <label>Số cột</label
+                ><select id="soCot" onchange="taoDanhSachCauHoi()">
+                  <option>2</option>
+                  <option selected>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-card">
+            <h2>Câu hỏi từng mảnh</h2>
+            <div id="questions" class="questions"></div>
+          </div>
+          <div class="form-card">
+            <h2>Câu hỏi cuối & phần thưởng lớn</h2>
+            <div class="form-grid">
+              <div class="control">
+                <label>Loại</label
+                ><select id="loaiCauHoiCuoi">
+                  <option value="tra_loi_ngan">Trả lời ngắn</option>
+                  <option value="trac_nghiem">Trắc nghiệm</option>
+                </select>
+              </div>
+              <div class="control full">
+                <label>Câu hỏi cuối</label
+                ><textarea id="cauHoiCuoi" required></textarea>
+              </div>
+              <div class="control">
+                <label>Đáp án ngắn (cách nhau bằng |)</label
+                ><input id="dapAnCuoi" placeholder="iot|internet of things" />
+              </div>
+              <div class="control">
+                <label>Đáp án A</label><input id="cuoiA" />
+              </div>
+              <div class="control">
+                <label>Đáp án B</label><input id="cuoiB" />
+              </div>
+              <div class="control">
+                <label>Đáp án C</label><input id="cuoiC" />
+              </div>
+              <div class="control">
+                <label>Đáp án D</label><input id="cuoiD" />
+              </div>
+              <div class="control">
+                <label>Đáp án đúng nếu trắc nghiệm</label
+                ><input id="cuoiDung" />
+              </div>
+              <div class="control">
+                <label>Phần thưởng lớn</label
+                ><input id="phanThuongLon" placeholder="Gấu bông Krack" />
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn dark"
+            style="margin-bottom: 50px; padding: 15px 24px"
+          >
+            Tạo thử thách →
+          </button>
+        </form>
+      </section>
+    </div>
+    <div id="toast" class="toast"></div>
+    <script src="/js/chung.js"></script>
+    <script src="/js/admin.js"></script>
+  </body>
+</html>
